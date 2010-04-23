@@ -1,0 +1,24 @@
+%div
+  = link_to "Twitter アカウントでログイン", :controller => :sessions, :action => :create_with_twitter
+%div
+  %h1 #Sokuhame
+  %p #Sokuhame はセフレを募集する人の為のプラットフォームです
+  %p Twitter ID でログインすることが出来ます
+  %p
+    = link_to "金くれ", "http://kanekure.ssig33.com/"
+    を流用してつくりました
+%div
+  %h3 セフレを募集している人達
+  %table
+    %tr
+      %th 名前
+      %th 連絡先
+      %th 提供出来るもの
+      %th メモ
+    %tbody.autopagerize_page_element
+    - @posts.each do |p|
+      %tr
+        %td= link_to h(p.user.name), :action => :view, :id => h(p.user.name)
+        %td= h p.cut_address
+        %td= h p.cut_cost
+        %td= h p.cut_memo

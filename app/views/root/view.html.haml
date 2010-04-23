@@ -1,0 +1,16 @@
+%div
+  %h3
+    =h @post.user.name
+    がセフレを募集しています
+  %p
+    %h4 連絡先
+    =h @post.address
+  %p
+    %h4 提供出来るもの
+    =h @post.cost
+  %p
+    %h4 メモ
+    =h @post.memo
+  %br
+%div
+  = link_to "トップへ戻る", :action => :index

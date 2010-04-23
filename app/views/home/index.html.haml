@@ -1,0 +1,27 @@
+%div
+  %h3 
+    ようこそ
+    =h @user.name
+    さん
+%div
+  - form_tag :action => :update do
+    %p  
+      %b 連絡先
+      %br
+      = text_field_tag "post[address]", @post.address, :size => 80
+    %p
+      %b 提供出来るもの
+      %br
+      = text_field_tag "post[cost]", @post.cost, :size => 80
+    %p
+      %b メモ
+      %br
+      = text_area_tag "post[memo]", @post.memo, :size => "80x15"
+    %p
+      = submit_tag "投稿する"
+%br
+%div
+  = link_to "Twitter に tweet する(投稿後に行なってください)", :action => :post
+%br
+%div
+  = link_to "トップへ戻る", :controller => :root, :action => :index
